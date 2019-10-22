@@ -1,31 +1,59 @@
 import React from 'react';
 import classnames from 'classnames';
-import dodgers from '../dodgerLogo.png';
-import yankees from '../yankeeLogo.png';
+import dodgersLogo from '../dodgerLogo.png';
+import yankeesLogo from '../yankeeLogo.png';
+import ChooseModal from './ChooseModal';
+import CurrentMove from './CurrentMove';
 
 class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      one: 0,
-      two: 0,
+      newGame: true,
+      move: '',
+      la: 0,
+      ny: 0,
+      board: [['', '', ''],
+      ['', '', ''],
+      ['', '', '']],
+      boardObj: {1:false, 2:false, 3:false, 4:false, 5:false, 6:false, 7:false, 8:false, 9:false }
     }
-    this.drawerClick = this.drawerClick.bind(this);
+    this.newGame = this.newGame.bind(this);
+    this.squareClick = this.squareClick.bind(this);
+    this.teamClick = this.teamClick.bind(this);
   }
 
-  drawerClick(page) {
-    let tempObj = {};
-    for (let key in this.state) {
-      key === page ? tempObj[key] = true : tempObj[key] = false;
-    }
-    page === 'resume' ? tempObj['background'] = false : tempObj['background'] = true;
-    this.setState(tempObj)
+
+  squareClick(square){
+    
   }
+
+  teamClick(team){
+    this.setState({
+      newGame: false,
+      move: team
+    })
+  }
+
+  newGame(){
+    board = [['', '', ''],
+          ['', '', ''],
+          ['', '', '']];
+  move = 'X';
+
+  for (square of document.getElementsByClassName('square')) {
+    square.addEventListener('click', clickHandler);
+    square.children[0].innerHTML = '';
+  }
+  document.getElementById('player').innerHTML = 'Current Player: X';
+};
 
   render () {
     return (
       <div className='tictacContainer'>
         <h1 className='tictacHeader'> TIC TAC TOE</h1>
+        {this.state.newGame ? <ChooseModal teamClick={this.teamClick}/> : null}
+        <CurrentMove currentMove={this.state.move}/>
         <div className='tictacGameContainer'>
           <div className='tictacBoard'>
             <span className='tictacSquare'></span>
@@ -39,8 +67,8 @@ class App extends React.Component {
             <span className='tictacSquare'></span>
           </div>
         </div>
-        <img src={dodgers} className='tictacLogo'></img>
-        <img src={yankees} className='tictacLogo'></img>
+        <img src={dodgersLogo} className='tictacLogo'></img>
+        <img src={yankeesLogo} className='tictacLogo'></img>
       </div>
     )
   }

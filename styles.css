@@ -23,7 +23,6 @@
 }
 
 .tictacSquare{
-  /* border: solid dodgerblue; */
   border-width: .5vw;
   height: 90%;
   width: 90%;
@@ -35,4 +34,51 @@
   width: 12vw;
   height: 12vw;
   border-radius: 50%;
+  z-index: 10;
+}
+
+.chooseModal {
+  align-content: center;
+  margin-left: auto;
+  margin-top: auto;
+  position: fixed; 
+  display: block;
+  z-index: 4; 
+  left: 20%;
+  top: 10%;
+  border: solid black; 
+  border-radius: 1em;
+  width: 60%; /* Full width */
+  height: auto; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */ 
+}
+
+.teamModalLogo {
+  height: 20vw;
+  width: 20vw;
+  border-radius: 50%;
+}
+
+.teamModalLogo:hover {
+  border: solid silver;
+  cursor: pointer;
+}
+
+.modalContainer {
+  position: relative;
+  text-align: center;
+  margin-left: 8%;
+  width: 50vw;
+  height: 35vw;
+  margin-top: 3vw;
+  font-family: 'Roboto', sans-serif;
+  font-size: 3vw;
+  font-weight: 100;
+  color: white;
+}
+
+.modalSubContainer{
+  position: relative,
+  hei
 }
