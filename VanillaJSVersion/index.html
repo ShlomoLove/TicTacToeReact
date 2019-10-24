@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic Tac Toe</title>
+    <style>
+      h1 {
+        text-align: center;
+        color: dodgerblue;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      td { 
+        width: 100px;
+        height: 100px;
+      }
+      table {
+        margin: 10px auto;
+      }
+      .vert {
+        border-left: 2px solid green;
+        border-right: 2px solid dodgerblue; 
+      }
+      .hori {
+        border-top: 2px solid red;
+        border-bottom: 2px solid orange;
+      }
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 100px;
+        font-size: 80px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: dodgerblue;
+      }
+      #player {
+        font-size: 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        text-align: left; 
+        padding-bottom: 20px;
+        color: green;
+      }
+      #reset {
+        font-size: 20px;
+        border-width: 2px;
+        border-color: dodgerblue;
+        border-style: solid;
+        color: red; 
+      }
+      #board {
+        margin-left: auto;
+        margin-right: auto;
+        align-content: center;
+        width: 960 px; 
+      }
+      .square {
+        height: 120px;
+        width: 120px;
+        border-width: 2px;
+        text-align: center;
+        vertical-align: middle
+      }
+      font {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: dodgerblue; 
+      }
+    </style> 
+  </head>
+  <body>
+    <h1>Tic Tac Toe Death Match</h1>
+    <div id="wrapper">
+      <div id="player">
+        Current Move: X
+      </div>
+      <button id="reset">Reset Game</button>
+      <div id="board">
+        <table>
+          <tr class="row" id="row1">
+            <td class="square" id="00"><span id="space00"></span></td>
+            <td class="square vert" id="01"><span id="space01"></span></td>
+            <td class="square" id="02"><span id="space02"></span></td>
+          </tr>
+          <tr class="row" id="row2">
+              <td class="square hori" id="10"><span id="space10"></span></td>
+              <td class="square vert hori" id="11"><span id="space11"></span></td>
+              <td class="square hori" id="12"><span id="space12"></span></td>
+            </tr>
+            <tr class="row" id="row3">
+              <td class="square" id="20"><span id="space20"></span></td>
+              <td class="square vert" id="21"><span id="space21"></span></td>
+              <td class="square" id="22"><span id="space22"></span></td>
+            </tr>
+        </table>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
+
