@@ -8,32 +8,45 @@ const Winner = (props) => {
 
   if (result === 'la') {
     return (
-      <div className='tictacWinner' >
-        The Winner Is: <img src={dodgersLogo} className='tictacLogo'></img>
+      <div className='currentMove' >
+        <img src={dodgersLogo} className='currentTeamLogo'></img>
+        <div>
+          WINS
+        </div>
       </div>
     )
   } else if (result === 'ny') {
     return (
-      <div className='tictacWinner'>
-        The Winner Is: <img src={yankeesLogo} className='tictacLogo'></img>
+      <div className='currentMove'>
+        <img src={yankeesLogo} className='currentTeamLogo'></img> 
+        <div>
+          WINS
+        </div>
       </div>
     )
   } else if (result === 'tie'){
     return (
-        <div className='tictacWinner'>
-          The Game Ended in a Tie. Play Again.
+        <div className='tieDeclaration'>
+          The Game Ended in a Tie. 
+          Play Again.
         </div>
     )
   } else if (currentMove === 'la') {
     return (
       <div className='currentMove'>
-        Current Move: <img src={dodgersLogo} className='tictacLogo'></img>
+        Current Move
+        <div>
+          <img src={dodgersLogo} className='tictacLogo'></img>
+        </div>
       </div>
     )
   } else if (currentMove === 'ny') {
     return (
       <div className='currentMove'>
-        Current Move: <img src={yankeesLogo} className='tictacLogo'></img>
+        Current Move 
+        <div>
+          <img src={yankeesLogo} className='tictacLogo'></img>
+        </div>
       </div>
     )
   } else {

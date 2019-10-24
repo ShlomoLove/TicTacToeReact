@@ -1,9 +1,128 @@
+.tictacContainer {
+  align-content: center;
+}
+
+.tictacHeader{
+  font-family: 'playball';
+  font-weight: 500;
+  font-size: 6vw;
+  text-align: center;
+  color: red;
+}
+
+.tictacMatchContainer{  
+  display: grid;
+  width: 80%;
+  justify-self: center;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 40% 60%;
+}
+
+.scoreBoardContainer {
+  background: rgba(10,10,225,0.8)
+}
+
+.scoreBoardHeader{
+  font-family: 'Roboto';
+  font-weight: 200;
+  margin-left: 1.5vw;
+  margin-top: 1.5vw;
+  color: white;
+  font-size: 4vw;
+}
+
+.scoreBoardSubHeader {
+  font-family: 'Roboto';
+  font-weight: 500;
+  color: red;
+  font-size: 3.5vw;
+  margin-top: 1.5vw;
+  margin-left: 2vw;
+}
+
+.scoreBoardBox {
+  background-color: rgba(255, 255, 255, .8);
+  height: 100%;
+}
+
+.scoreBoard {
+  font-family: 'Roboto';
+  font-weight: 500;
+  color: red;
+  font-size: 3.5vw;
+  margin-top: 1.5vw;
+  margin-left: 2vw;
+}
+
+.dodgerScore {
+  font-family: 'playball';
+  color: dodgerblue;
+  font-size: 3vw;
+  margin-top: .5vw;
+  margin-left: 2.5vw;
+}
+
+.yankeeScore {
+  font-family: 'playball';
+  color: navy;
+  font-size: 3vw;
+  margin-top: .5vw;
+  margin-left: 2.5vw;
+}
+
+.tieScore {
+  font-family: 'playball';
+  color: black;
+  font-size: 3vw;
+  margin-top: .5vw;
+  margin-left: 2.5vw;
+}
+
+.score{
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 3vw;
+  color: black;
+  float: right;
+  margin-right: 10vw;
+}
+
+.scoreBoardLogo {
+  width: 2.5vw;
+  height: 2.5vw;
+  border-radius: 50%;
+}
+
+.currentMove {
+  font-family: 'playball';
+  font-size: 4vw;
+  color: white;
+  text-align: center;
+}
+
+.tieDeclaration {
+  font-family:'playball';
+  font-size: 3vw;
+  color: white;
+  text-align: center;
+}
+
+.currentMoveBox{
+  height: 40%;
+}
 .tictacGameContainer{
+  padding-top: 3vw;
+  padding-bottom: 3vw;
+  /* background: rgba(10,10,225,0.3) */
+}
+
+.tictacGame{
   margin-right: auto;
   margin-left: auto; 
   align-content: center; 
-  width: 50vw; 
-  height: 50vw;
+  width: 30vw; 
+  height: 30vw;
   position: relative;
 }
 
@@ -25,7 +144,7 @@
   border-width: .5vw;
   height: 90%;
   width: 90%;
-  background-color: rgba(3, 7, 46, 0.4);
+  background-color: rgba(230, 20, 20, 0.4);
   border-radius: .75em;
 }
 
@@ -33,25 +152,36 @@
   border-width: .5vw;
   height: 90%;
   width: 90%;
-  background-color: rgba(3, 7, 46, 0.4);
+  background-color: rgba(230, 20, 20, 0.7);;
   border-radius: .75em;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .tictacSquare:hover{
   cursor: pointer;
-  border: solid silver;
+  border: solid rgba(230, 20, 20, 0.3);
   z-index: 1;
-  /* background-color: rgba(3, 7, 46, 0.4); */
 }
 
 .tictacLogo{
-  width: 12vw;
-  height: 12vw;
+  width: 7vw;
+  height: 7vw;
   border-radius: 50%;
-  z-index: 10;
-  border: solid white; 
-  margin-top: 1.25vw;
-  margin-left: 1.25vw;
+  z-index: 2;
+  border: solid white;
+  text-align: center;
+}
+
+.currentTeamLogo{
+  width: 7vw;
+  height: 7vw;
+  border-radius: 50%;
+  z-index: 2;
+  border: solid white;
+  text-align: center;
+  margin-top: 2vw;
 }
 
 .chooseModal {
@@ -63,18 +193,20 @@
   z-index: 3; 
   left: 20%;
   top: 10%;
-  border: solid black; 
+  border: solid blue; 
   border-radius: 1em;
   width: 60%; /* Full width */
   height: auto; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */ 
+  background-color: rgba(150,20,20,0.8); /* Black w/ opacity */ 
 }
 
 .teamModalLogo {
   height: 20vw;
   width: 20vw;
   border-radius: 50%;
+  margin-top: 4vw;
+  z-index: 5;
 }
 
 .teamModalLogo:hover {
@@ -91,11 +223,36 @@
   margin-top: 3vw;
   font-family: 'Roboto', sans-serif;
   font-size: 3vw;
-  font-weight: 100;
+  font-weight: 300;
+  color: white;
+}
+
+.winnerHeader {
+  font-family: 'playball';
+  font-size: 3.75vw;
   color: white;
 }
 
 .modalSubContainer{
   position: relative,
-  hei
+}
+
+.newGameButton{
+  float: right;
+  margin-right: 3vw;
+  border-radius: 1vw;
+  margin-top: 10vw;
+  height: 5vw;
+  width: 10vw;
+  color: white;
+  font-family: 'Roboto';
+  font-weight: 300;
+  background: rgba(0,0,0,0);
+}
+
+.newGameButton:hover{
+  cursor: pointer;
+  background: rgba(0,0,255,.5);
+  color:red;
+
 }

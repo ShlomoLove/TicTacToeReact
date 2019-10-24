@@ -15,6 +15,7 @@ class App extends React.Component {
       move: '',
       la: 0,
       ny: 0,
+      tie: 0,
       result: null,
       board: Array(9).fill(null),
     }
@@ -26,7 +27,7 @@ class App extends React.Component {
   }
 
   squareClick(square){
-    let {board, move, result, la, ny} = this.state;
+    let {board, move, result, la, ny, tie} = this.state;
     let next
 
     if (result) return;
@@ -40,18 +41,17 @@ class App extends React.Component {
       next = '';
     }
 
-    if (newResult === 'la') {
-      la +=1
-    }
-    if (newResult === 'ny')
-      ny+=1
+    if (newResult === 'la') la+=1;
+    if (newResult === 'ny') ny+=1;
+    if (newResult === 'tie') tie+=1;
 
     this.setState({
       board: board, 
       move: next, 
       result: newResult, 
       la: la, 
-      ny: ny
+      ny: ny,
+      tie: tie,
     })   
   }
 
@@ -95,23 +95,39 @@ class App extends React.Component {
   }
 
   render () {
-    let {la, ny} = this.state
+    let {la, ny, tie} = this.state
     return (
       <div className='tictacContainer'>
-        <h1 className='tictacHeader'> TIC TAC TOE</h1>
+        <h1 className='tictacHeader'> Tic Tac Toe: World Series Classic</h1>
         {this.state.result && <NewGameModal result={this.state.result} resetBoard={this.resetBoard}/>}
         {this.state.newGame ? <ChooseModal teamClick={this.teamClick}/> : null}
-        <Winner result={this.state.result} currentMove={this.state.move}/>
-        <div className='tictacGameContainer'>
-          <div className='tictacBoard'>
-          {this.state.board.map((square, i) => {
-            return (
-              <Square result={this.state.result} square={square} index={i} squareClick={this.squareClick}/>
-            )})}
+        
+        <div className='tictacMatchContainer'>
+          <div className='scoreBoardContainer'>
+            {/* <div className='scoreBoardHeader'>Match Details</div> */}
+            <div className='currentMoveBox'>
+              <Winner result={this.state.result} currentMove={this.state.move}/> 
+            </div>
+            <div className='scoreBoardBox'>
+              <div className='scoreBoard'>
+                <div className='scoreBoardSubHeader'>Score Board</div>
+                <div className='dodgerScore'> Dodgers <img src={dodgersLogo} className='scoreBoardLogo'></img> <span className='score'>{la}</span></div>
+                <div className='yankeeScore'> Yankees <img src={yankeesLogo} className='scoreBoardLogo'></img> <span className='score'>{ny}</span></div>
+                <div className='tieScore'> Tie: <span className='score'>{tie}</span></div>
+              </div>
+            </div>
+          </div>
+          <div className='tictacGameContainer'>
+            <div className='tictacGame'>
+              <div className='tictacBoard'>
+              {this.state.board.map((square, i) => {
+                return (
+                  <Square result={this.state.result} square={square} index={i} squareClick={this.squareClick}/>
+                )})}
+              </div>
+            </div>
           </div>
         </div>
-        <div> Dodgers: {la}</div>
-        <div> Yankees: {ny}</div>
       </div>
     )
   }
