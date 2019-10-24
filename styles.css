@@ -2,7 +2,6 @@
   margin-right: auto;
   margin-left: auto; 
   align-content: center; 
-  border: solid green; 
   width: 50vw; 
   height: 50vw;
   position: relative;
@@ -22,12 +21,27 @@
   margin-top: .75vw;
 }
 
-.tictacSquare{
+.tictacSquare {
   border-width: .5vw;
   height: 90%;
   width: 90%;
-  background-color: rgba(3, 7, 46, 0.6);
+  background-color: rgba(3, 7, 46, 0.4);
   border-radius: .75em;
+}
+
+.tictacSquareFilled{
+  border-width: .5vw;
+  height: 90%;
+  width: 90%;
+  background-color: rgba(3, 7, 46, 0.4);
+  border-radius: .75em;
+}
+
+.tictacSquare:hover{
+  cursor: pointer;
+  border: solid silver;
+  z-index: 1;
+  /* background-color: rgba(3, 7, 46, 0.4); */
 }
 
 .tictacLogo{
@@ -35,6 +49,9 @@
   height: 12vw;
   border-radius: 50%;
   z-index: 10;
+  border: solid white; 
+  margin-top: 1.25vw;
+  margin-left: 1.25vw;
 }
 
 .chooseModal {
@@ -43,7 +60,7 @@
   margin-top: auto;
   position: fixed; 
   display: block;
-  z-index: 4; 
+  z-index: 3; 
   left: 20%;
   top: 10%;
   border: solid black; 
